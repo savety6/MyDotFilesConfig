@@ -1,0 +1,30 @@
+cmake
+docker.io
+eza
+fd-find
+fzf
+gnupg
+htop
+jq
+lazygit
+llvm
+neovim
+nmap
+pass
+ripgrep
+scrcpy
+tldr
+tmux
+wget
+yadm
+zoxide
+zsh-autosuggestions
+
+# Go toolchain (brew "go")
+golang-go
+
+# Rust/Cargo (because you had `cargo "wasm-pack"`)
+cargo
+
+# NOTE: upstream warns Ubuntu repo watchman can be old; consider installing from official releases if you depend on it heavily.
+watchman

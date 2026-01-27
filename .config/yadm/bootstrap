@@ -1,0 +1,18 @@
+#!/bin/sh
+set -eu
+
+# Ensure alternates are linked so the correct OS script appears as 10-packages.sh
+yadm alt >/dev/null 2>&1 || true
+
+DIR="$HOME/.config/yadm/bootstrap.d"
+[ -d "$DIR" ] || exit 0
+
+for f in "$DIR"/*; do
+  [ -f "$f" ] || continue
+  case "$f" in
+    *"##"*) continue ;; # skip alternate source files
+  esac
+  [ -x "$f" ] || continue
+  echo "[yadm] running $(basename "$f")"
+  "$f"
+done

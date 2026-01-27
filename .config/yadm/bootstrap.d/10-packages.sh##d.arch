@@ -1,0 +1,20 @@
+#!/bin/sh
+set -eu
+
+LIST="$HOME/.config/pkg/pacman/packages.txt"
+
+command -v pacman >/dev/null 2>&1 || { echo "[pacman] pacman not found, skipping"; exit 0; }
+
+sudo pacman -Syu
+
+# Clean list, then install.
+sed -e 's/#.*$//' -e '/^[[:space:]]*$/d' "$LIST" > /tmp/yadm-pkgs.txt
+
+if [ -s /tmp/yadm-pkgs.txt ]; then
+  echo "[pacman] Installing packages..."
+  sudo pacman -S --needed - < /tmp/yadm-pkgs.txt
+else
+  echo "[pacman] No packages listed."
+fi
+
+rm -f /tmp/yadm-pkgs.txt

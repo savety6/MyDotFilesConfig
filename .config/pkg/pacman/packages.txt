@@ -1,0 +1,28 @@
+cmake
+docker
+eza
+fd
+fzf
+gnupg
+go
+htop
+jq
+lazygit
+llvm
+neovim
+nmap
+pass
+ripgrep
+scrcpy
+tldr
+tmux
+wget
+yadm
+zoxide
+zsh-autosuggestions
+
+# Rust toolchain for cargo installs (because you had `cargo "wasm-pack"`)
+rust
+
+# If you rely on watchman specifically, it's commonly installed via AUR on Arch.
+# (Keeping it out of pacman list by default to avoid failing a clean bootstrap.)

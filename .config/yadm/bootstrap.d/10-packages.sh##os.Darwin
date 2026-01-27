@@ -1,0 +1,12 @@
+#!/bin/sh
+set -eu
+
+BREWFILE="$HOME/.config/pkg/brew/Brewfile"
+
+if ! command -v brew >/dev/null 2>&1; then
+  echo "[brew] Installing Homebrew..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+echo "[brew] Installing packages from Brewfile..."
+brew bundle --file "$BREWFILE"

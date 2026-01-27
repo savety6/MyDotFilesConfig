@@ -1,0 +1,18 @@
+#!/bin/sh
+set -eu
+
+LIST="$HOME/.config/pkg/apt/packages.txt"
+
+command -v apt-get >/dev/null 2>&1 || { echo "[apt] apt-get not found, skipping"; exit 0; }
+
+sudo apt-get update
+
+# Remove comments/blank lines, install everything
+PKGS="$(sed -e 's/#.*$//' -e '/^[[:space:]]*$/d' "$LIST" | tr '\n' ' ')"
+
+if [ -n "$PKGS" ]; then
+  echo "[apt] Installing: $PKGS"
+  sudo apt-get install -y $PKGS
+else
+  echo "[apt] No packages listed."
+fi

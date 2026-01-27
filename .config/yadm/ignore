@@ -1,0 +1,65 @@
+# --- macOS noise ---
+.DS_Store
+.Trash/
+*.swp
+*.tmp
+*.log
+
+# --- Big personal folders ---
+Desktop/
+Documents/
+Downloads/
+Library/
+Movies/
+Music/
+Pictures/
+Applications/
+Public/
+Dev/
+3D_Work/
+go/
+
+# --- caches / generated ---
+.cache/
+.npm/
+.bun/
+.gradle/
+.cocoapods/
+.gem/
+.swiftpm/
+.thumbnails/
+.local/share/Trash/
+.local/state/
+
+# --- shells & editors noise ---
+.zsh_history
+.bash_history
+.zcompdump*
+.zsh_sessions/
+.viminfo
+.wget-hsts
+.tmux*
+tmux-client-*.log
+
+# --- secrets (never commit) ---
+.ssh/
+.gnupg/
+.password-store/
+.emulator_console_auth_token
+
+# --- IDE / AI tools state (default: ignore) ---
+.cursor/
+.codex/
+.claude/
+.claude.json
+.claude.json.backup
+.gemini/
+.supermaven/
+
+# --- Raycast (do not track app state) ---
+Library/Application Support/Raycast/
+Library/Preferences/com.raycast.*.plist
+
+# --- Docker (may contain auth; ignore by default) ---
+.docker/
+.tldrc/

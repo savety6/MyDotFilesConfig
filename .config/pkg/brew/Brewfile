@@ -1,0 +1,132 @@
+tap "anomalyco/tap"
+tap "jesseduffield/lazygit"
+tap "oven-sh/bun"
+tap "samtay/tui"
+tap "theboredteam/boring-notch"
+# Cross-platform make
+brew "cmake"
+# Dependency manager for Cocoa projects
+brew "cocoapods"
+# Pack, ship and run any application as a lightweight container
+brew "docker"
+# Modern, maintained replacement for ls
+brew "eza"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# Interact with Google Gemini AI models from the command-line
+brew "gemini-cli"
+# GNU Privacy Guard (OpenPGP)
+brew "gnupg"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# Improved top (interactive process viewer)
+brew "htop"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Simple terminal UI for git commands
+brew "lazygit"
+# Next-gen compiler infrastructure
+brew "llvm"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Port scanning utility for large networks
+brew "nmap"
+# Password manager
+brew "pass"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Display and control your Android device
+brew "scrcpy"
+# Simplified and community-driven man pages
+brew "tldr"
+# Terminal multiplexer
+brew "tmux"
+# Watch files and take action when they change
+brew "watchman"
+# Internet file retriever
+brew "wget"
+# Yet Another Dotfiles Manager
+brew "yadm"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
+# Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
+# The AI coding agent built for the terminal.
+brew "anomalyco/tap/opencode"
+# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
+brew "oven-sh/bun/bun"
+# Tetris in your terminal
+brew "samtay/tui/tetris"
+# Enable Windows-like alt-tab
+cask "alt-tab"
+# Transfer files from and to an Android smartphone
+cask "android-file-transfer"
+# Android SDK component
+cask "android-platform-tools"
+# 3D model slicing software for 3D printers, maintained by Bambu Lab
+cask "bambu-studio"
+# Menu bar icon organiser
+cask "bartender"
+# Display management tool
+cask "betterdisplay"
+# 3D creation suite
+cask "blender"
+# Not so boring notch That Rocks 🎸🎶 
+cask "theboredteam/boring-notch/boring-notch"
+# Web browser focusing on privacy
+cask "brave-browser"
+# OpenAI's official ChatGPT desktop app
+cask "chatgpt"
+# Anthropic's official Claude AI desktop app
+cask "claude"
+# Write, edit, and chat about your code with AI
+cask "cursor"
+# App to build and share containerised applications and microservices
+cask "docker-desktop"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
+# Keyboard customiser
+cask "karabiner-elements"
+# File archiver
+cask "keka"
+# Software for Logitech devices
+cask "logi-options+"
+# Smooths scrolling and set mouse scroll directions independently
+cask "mos"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
+# Move and resize windows using keyboard shortcuts or snap areas
+cask "rectangle"
+# System monitor for the menu bar
+cask "stats"
+# Open-source code editor
+cask "visual-studio-code"
+# Reycast
+cask "raycast"
+# Video communication and virtual meeting platform
+cask "zoom"
+# OpenJDK distribution from Azul
+cask "zulu@17"
+go "golang.org/x/tools/cmd/callgraph"
+go "github.com/go-delve/delve/cmd/dlv"
+go "github.com/onsi/ginkgo/v2/ginkgo"
+go "github.com/abice/go-enum"
+go "mvdan.cc/gofumpt"
+go "golang.org/x/tools/cmd/goimports"
+go "github.com/twpayne/go-jsonstruct/v3/cmd/gojsonstruct"
+go "github.com/golangci/golangci-lint/v2/cmd/golangci-lint"
+go "github.com/segmentio/golines"
+go "github.com/fatih/gomodifytags"
+go "github.com/abenz1267/gomvp"
+go "golang.org/x/tools/cmd/gonew"
+go "golang.org/x/tools/gopls"
+go "github.com/cweill/gotests/gotests"
+go "gotest.tools/gotestsum"
+go "golang.org/x/vuln/cmd/govulncheck"
+go "github.com/koron/iferr"
+go "github.com/josharian/impl"
+go "go.uber.org/mock/mockgen"
+go "github.com/kyoh86/richgo"
+cargo "wasm-pack"
