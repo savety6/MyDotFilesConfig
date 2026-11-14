@@ -2,6 +2,12 @@
 
 Personal dotfiles managed with [YADM](https://yadm.io) (Yet Another Dotfiles Manager). Supports **macOS**, **Debian/Ubuntu**, and **Arch Linux**.
 
+> **`ubuntu` branch:** a headless-server variant of the zsh config (no nvm/kubectl/mac-only
+> bits). `bootstrap.d/` gains three extra Debian/Ubuntu-only steps (`20-neovim.sh`,
+> `30-rust.sh`, `40-zsh-plugins.sh`) to install the latest Neovim release, Rust via rustup,
+> and Oh My Zsh + Powerlevel10k + the zsh plugins `.zshrc` expects — none of which are apt
+> packages, and the apt neovim/cargo packages are too old/incomplete for this config as-is.
+
 ## What's Included
 
 | Config | Details |

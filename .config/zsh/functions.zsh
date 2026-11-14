@@ -3,40 +3,6 @@ function colormap() {
   for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
 }
 
-function getWifiPass() {
-  echo security find-generic-password -wa "LegionNet_5G"
-}
-
-function getWifiPass() {
-  security find-generic-password -wa $1 | pbcopy
-}
-
-function showWifiPass() {
-  security find-generic-password -wa $1
-}
-
-function caff() {
-  caffeinate 
-  # caffeinate -d
-}
-
-function showDownloads() {
-  sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'select LSQuarantineDataURLString from LSQuarantineEvent'
-}
-
-function deleteDownloads() {
-  sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete LSQuarantineDataURLString from LSQuarantineEvent'
-}
-
-function passwd() {
-  # this will change the Mac Password
-  passwd
-}
-
-function flushDNSCache() {
-  sudo killall -HUP mDNSResponder; sudo killall mDNSResponderHelper; sudo dscacheutil -flushcache
-}
-
 function killp() {
   local port=$1
   local pids=$(lsof -ti:$port)

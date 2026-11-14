@@ -1,2 +1,1 @@
-
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# Nothing needed here on Linux — PATH/editor/cargo setup lives in ~/.config/zsh/zshenv.

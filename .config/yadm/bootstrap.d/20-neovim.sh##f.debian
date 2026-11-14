@@ -1,0 +1,19 @@
+#!/bin/sh
+set -eu
+
+# apt's neovim lags behind upstream; install the latest release binary instead.
+VERSION="$(curl -fsSL https://api.github.com/repos/neovim/neovim/releases/latest | grep '"tag_name"' | sed -E 's/.*"v([^"]+)".*/\1/')"
+
+if command -v nvim >/dev/null 2>&1 && [ "$(nvim --version | head -1 | sed -E 's/^NVIM v//')" = "$VERSION" ]; then
+  echo "[neovim] v$VERSION already installed, skipping"
+  exit 0
+fi
+
+echo "[neovim] installing v$VERSION"
+TMP="$(mktemp -d)"
+curl -fsSL -o "$TMP/nvim.tar.gz" "https://github.com/neovim/neovim/releases/download/v${VERSION}/nvim-linux-x86_64.tar.gz"
+tar xzf "$TMP/nvim.tar.gz" -C "$TMP"
+sudo rm -rf /opt/nvim
+sudo mv "$TMP/nvim-linux-x86_64" /opt/nvim
+sudo ln -sf /opt/nvim/bin/nvim /usr/local/bin/nvim
+rm -rf "$TMP"

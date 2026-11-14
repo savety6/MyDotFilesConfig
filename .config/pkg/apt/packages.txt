@@ -8,7 +8,7 @@ htop
 jq
 lazygit
 llvm
-neovim
+lsof
 nmap
 pass
 ripgrep
@@ -23,8 +23,11 @@ zsh-autosuggestions
 # Go toolchain (brew "go")
 golang-go
 
-# Rust/Cargo (because you had `cargo "wasm-pack"`)
-cargo
-
 # NOTE: upstream warns Ubuntu repo watchman can be old; consider installing from official releases if you depend on it heavily.
 watchman
+
+# Neovim: apt's version lags behind upstream (and what the nvim config needs).
+# Installed from the latest GitHub release by 20-neovim.sh instead.
+
+# Rust/Cargo: apt's `cargo` package doesn't set up ~/.cargo/env, which
+# ~/.config/zsh/zshenv expects. Installed via rustup by 30-rust.sh instead.

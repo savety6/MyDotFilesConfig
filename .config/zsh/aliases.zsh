@@ -1,15 +1,12 @@
-alias k="kubectl"
-alias kc="kubectx"
-alias kn="kubens"
-alias h="helm"
-alias tf="terraform"
-alias a="ansible"
-alias ap="ansible-playbook"
-alias ls="eza --icons --group-directories-first"
-alias ll="eza --icons --group-directories-first -l"
-alias bp="boilerplate"
-alias prx="proxmox-manager"
-alias grep="rg"
-alias find="fd"
-alias vim="nvim"
-alias vi="nvim"
+# eza replaces ls
+alias ls='eza --group-directories-first --icons --color=auto'
+alias ll='eza -l --group-directories-first --icons --color=auto'
+alias la='eza -la --group-directories-first --icons --color=auto'
+alias l='eza -F --group-directories-first --icons --color=auto'
+alias lt='eza -T --group-directories-first --icons --color=auto'
+
+# ripgrep / fd / nvim take over their classic counterparts
+alias grep='rg'
+alias find='fd'
+alias vim='nvim'
+alias vi='nvim'

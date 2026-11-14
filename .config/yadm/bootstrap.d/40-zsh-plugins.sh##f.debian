@@ -1,0 +1,34 @@
+#!/bin/sh
+set -eu
+
+# Oh My Zsh, Powerlevel10k, and the zsh plugins ~/.zshrc expects. None of
+# these are apt packages (zsh-autosuggestions is, but omz needs it as a
+# custom plugin dir, not the system path), so they're cloned directly.
+ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  echo "[omz] installing Oh My Zsh"
+  CHSH=no RUNZSH=no KEEP_ZSHRC=yes sh -c \
+    "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
+    "" --unattended --keep-zshrc
+fi
+
+clone_if_missing() {
+  dest="$1"
+  repo="$2"
+  if [ -d "$dest" ]; then
+    echo "[zsh-plugins] $(basename "$dest") already present, skipping"
+  else
+    echo "[zsh-plugins] cloning $(basename "$dest")"
+    git clone --depth=1 "$repo" "$dest"
+  fi
+}
+
+clone_if_missing "$HOME/.powerlevel10k" https://github.com/romkatv/powerlevel10k.git
+mkdir -p "$ZSH_CUSTOM/themes"
+ln -sf "$HOME/.powerlevel10k" "$ZSH_CUSTOM/themes/powerlevel10k"
+
+clone_if_missing "$ZSH_CUSTOM/plugins/zsh-autosuggestions" https://github.com/zsh-users/zsh-autosuggestions
+clone_if_missing "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" https://github.com/zsh-users/zsh-syntax-highlighting
+clone_if_missing "$ZSH_CUSTOM/plugins/fast-syntax-highlighting" https://github.com/zdharma-continuum/fast-syntax-highlighting
+clone_if_missing "$ZSH_CUSTOM/plugins/zsh-autocomplete" https://github.com/marlonrichert/zsh-autocomplete

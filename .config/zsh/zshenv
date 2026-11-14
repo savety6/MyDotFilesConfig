@@ -1,8 +1,8 @@
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Keep PATH in sync with bash (see ~/.profile) across login, interactive, and non-interactive zsh.
+case ":$PATH:" in
+  *":$HOME/.local/bin:"*) ;;
+  *) export PATH="$HOME/.local/bin:$PATH" ;;
+esac
 
-export EDITOR=vim
-export KUBE_EDITOR=vim
-. "$HOME/.cargo/env"
+export EDITOR=nvim
+[ -s "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"

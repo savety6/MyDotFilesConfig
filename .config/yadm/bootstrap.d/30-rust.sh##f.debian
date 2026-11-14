@@ -1,0 +1,12 @@
+#!/bin/sh
+set -eu
+
+# Installed via rustup rather than apt: it's a current toolchain and it sets
+# up ~/.cargo/env, which ~/.config/zsh/zshenv sources.
+if [ -s "$HOME/.cargo/env" ]; then
+  echo "[rust] already installed, skipping"
+  exit 0
+fi
+
+echo "[rust] installing via rustup"
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain stable
