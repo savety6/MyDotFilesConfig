@@ -3,10 +3,13 @@
 Personal dotfiles managed with [YADM](https://yadm.io) (Yet Another Dotfiles Manager). Supports **macOS**, **Debian/Ubuntu**, and **Arch Linux**.
 
 > **`ubuntu` branch:** a headless-server variant of the zsh config (no nvm/kubectl/mac-only
-> bits). `bootstrap.d/` gains three extra Debian/Ubuntu-only steps (`20-neovim.sh`,
-> `30-rust.sh`, `40-zsh-plugins.sh`) to install the latest Neovim release, Rust via rustup,
-> and Oh My Zsh + Powerlevel10k + the zsh plugins `.zshrc` expects — none of which are apt
-> packages, and the apt neovim/cargo packages are too old/incomplete for this config as-is.
+> bits). `bootstrap.d/` gains four extra Debian/Ubuntu-only steps (`20-neovim.sh`,
+> `30-rust.sh`, `40-zsh-plugins.sh`, `50-tmux-plugins.sh`) to install the latest Neovim
+> release, Rust via rustup, Oh My Zsh + Powerlevel10k + the zsh plugins `.zshrc` expects,
+> and TPM + tmux's plugins — none of which are apt packages, and the apt neovim/cargo
+> packages are too old/incomplete for this config as-is. Also fixes `.config/tmux/plugins/*`,
+> which were broken git submodule references (no `.gitmodules`, so they checked out empty) —
+> that path is now bootstrap-managed and gitignored instead of vendored.
 
 ## What's Included
 

@@ -1,0 +1,14 @@
+#!/bin/sh
+set -eu
+
+# tmux.conf's plugins (tmux-sensible, catppuccin-tmux) are managed by TPM, not
+# vendored into this repo -- cloning TPM and running its installer fetches them.
+mkdir -p "$HOME/logs"
+
+if [ ! -d "$HOME/.config/tmux/plugins/tpm" ]; then
+  echo "[tpm] installing Tmux Plugin Manager"
+  git clone --depth=1 https://github.com/tmux-plugins/tpm "$HOME/.config/tmux/plugins/tpm"
+fi
+
+echo "[tpm] installing plugins"
+"$HOME/.config/tmux/plugins/tpm/bin/install_plugins"

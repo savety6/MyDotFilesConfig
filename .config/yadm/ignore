@@ -36,6 +36,7 @@ go/
 .powerlevel10k/
 .cargo/
 .rustup/
+.config/tmux/plugins/
 
 # --- shells & editors noise ---
 .zsh_history
