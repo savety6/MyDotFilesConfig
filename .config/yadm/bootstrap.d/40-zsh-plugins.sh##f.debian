@@ -29,6 +29,7 @@ mkdir -p "$ZSH_CUSTOM/themes"
 ln -sf "$HOME/.powerlevel10k" "$ZSH_CUSTOM/themes/powerlevel10k"
 
 clone_if_missing "$ZSH_CUSTOM/plugins/zsh-autosuggestions" https://github.com/zsh-users/zsh-autosuggestions
-clone_if_missing "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" https://github.com/zsh-users/zsh-syntax-highlighting
+# Only one syntax highlighter: fast-syntax-highlighting is a full fork/replacement of
+# zsh-syntax-highlighting. Running both means they fight over the same ZLE widgets.
 clone_if_missing "$ZSH_CUSTOM/plugins/fast-syntax-highlighting" https://github.com/zdharma-continuum/fast-syntax-highlighting
 clone_if_missing "$ZSH_CUSTOM/plugins/zsh-autocomplete" https://github.com/marlonrichert/zsh-autocomplete
