@@ -31,6 +31,12 @@ go/
 .local/share/Trash/
 .local/state/
 
+# --- cloned/installed by bootstrap, not hand-edited ---
+.oh-my-zsh/
+.powerlevel10k/
+.cargo/
+.rustup/
+
 # --- shells & editors noise ---
 .zsh_history
 .bash_history

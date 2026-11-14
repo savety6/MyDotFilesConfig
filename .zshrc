@@ -23,10 +23,14 @@ alias egrep='egrep --color=auto'
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
-setopt SHARE_HISTORY HIST_IGNORE_DUPS APPEND_HISTORY
+setopt SHARE_HISTORY HIST_IGNORE_DUPS APPEND_HISTORY HIST_IGNORE_SPACE HIST_REDUCE_BLANKS
 
 # zoxide: smarter cd
 command -v zoxide >/dev/null && eval "$(zoxide init --cmd cd zsh)"
+
+# fzf: Ctrl+R fuzzy history, Ctrl+T fuzzy file insert, Alt+C fuzzy cd
+[[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+[[ -f /usr/share/doc/fzf/examples/completion.zsh ]] && source /usr/share/doc/fzf/examples/completion.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/p10k.zsh.
 [[ ! -f ~/.config/zsh/p10k.zsh ]] || source ~/.config/zsh/p10k.zsh
