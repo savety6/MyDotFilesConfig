@@ -10,6 +10,16 @@ Personal dotfiles managed with [YADM](https://yadm.io) (Yet Another Dotfiles Man
 > packages are too old/incomplete for this config as-is. Also fixes `.config/tmux/plugins/*`,
 > which were broken git submodule references (no `.gitmodules`, so they checked out empty) —
 > that path is now bootstrap-managed and gitignored instead of vendored.
+>
+> Further Debian/Ubuntu steps: `15-docker.sh` (docker-ce from Docker's repo; never touches an
+> existing docker), `25-lazygit.sh` (checksum-verified release binary, not in Ubuntu's apt),
+> `35-node.sh` (Node LTS into `~/.local/node`). Scripts share helpers from
+> `.config/yadm/lib/common.sh` and work as root or via sudo, on x86_64 and arm64.
+>
+> **Servers via Ansible:** set `YADM_SKIP_SYSTEM=1` before `yadm bootstrap` to skip the
+> system-level steps (apt, docker, neovim, lazygit) when a config-management tool installs
+> pinned versions of those itself; the user-level steps (Oh My Zsh, plugins, TPM, Rust,
+> Node) still run.
 
 ## What's Included
 

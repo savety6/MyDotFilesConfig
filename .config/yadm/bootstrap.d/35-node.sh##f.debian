@@ -1,0 +1,29 @@
+#!/bin/sh
+set -eu
+. "$HOME/.config/yadm/lib/common.sh"
+
+# Node.js for Neovim's LSP servers / tooling. User-level install (no root):
+# official nodejs.org tarball of the current LTS line into ~/.local/node,
+# binaries symlinked into ~/.local/bin (already on PATH via zshenv).
+MAJOR="${NODE_MAJOR:-24}"
+BASE="https://nodejs.org/dist/latest-v${MAJOR}.x"
+case "$(arch)" in x86_64) NARCH=x64 ;; arm64) NARCH=arm64 ;; esac
+
+SUMS="$(curl -fsSL "$BASE/SHASUMS256.txt")"
+FILE="$(printf '%s\n' "$SUMS" | awk -v a="linux-$NARCH.tar.xz" '$2 ~ a"$" {print $2}')"
+VERSION="$(printf '%s' "$FILE" | sed -E 's/^node-(v[^-]+)-.*/\1/')"
+
+if [ -x "$HOME/.local/node/bin/node" ] && [ "$("$HOME/.local/node/bin/node" --version)" = "$VERSION" ]; then
+  echo "[node] $VERSION already installed, skipping"
+  exit 0
+fi
+
+echo "[node] installing $VERSION ($FILE)"
+TMP="$(mktemp -d)"
+curl -fsSL -o "$TMP/$FILE" "$BASE/$FILE"
+(cd "$TMP" && printf '%s\n' "$SUMS" | grep " $FILE\$" | sha256sum -c -)
+rm -rf "$HOME/.local/node"
+mkdir -p "$HOME/.local/node" "$HOME/.local/bin"
+tar xJf "$TMP/$FILE" -C "$HOME/.local/node" --strip-components=1
+for b in node npm npx corepack; do ln -sf "$HOME/.local/node/bin/$b" "$HOME/.local/bin/$b"; done
+rm -rf "$TMP"

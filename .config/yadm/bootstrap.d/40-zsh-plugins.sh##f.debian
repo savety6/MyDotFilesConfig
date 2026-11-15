@@ -6,13 +6,6 @@ set -eu
 # custom plugin dir, not the system path), so they're cloned directly.
 ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-  echo "[omz] installing Oh My Zsh"
-  CHSH=no RUNZSH=no KEEP_ZSHRC=yes sh -c \
-    "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
-    "" --unattended --keep-zshrc
-fi
-
 clone_if_missing() {
   dest="$1"
   repo="$2"
@@ -23,6 +16,11 @@ clone_if_missing() {
     git clone --depth=1 "$repo" "$dest"
   fi
 }
+
+# Oh My Zsh is just its git repo -- clone it directly instead of piping the
+# install script to sh (that script would also try to replace ~/.zshrc and
+# change the login shell; both are handled elsewhere).
+clone_if_missing "$HOME/.oh-my-zsh" https://github.com/ohmyzsh/ohmyzsh.git
 
 clone_if_missing "$HOME/.powerlevel10k" https://github.com/romkatv/powerlevel10k.git
 mkdir -p "$ZSH_CUSTOM/themes"

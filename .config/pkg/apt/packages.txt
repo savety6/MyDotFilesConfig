@@ -1,13 +1,11 @@
 bat
 cmake
-docker.io
 eza
 fd-find
 fzf
 gnupg
 htop
 jq
-lazygit
 llvm
 lsof
 nmap
@@ -32,3 +30,12 @@ watchman
 
 # Rust/Cargo: apt's `cargo` package doesn't set up ~/.cargo/env, which
 # ~/.config/zsh/zshenv expects. Installed via rustup by 30-rust.sh instead.
+
+# Lua 5.1 + luarocks: needed by Neovim plugins (tree-sitter / lazy.nvim rocks).
+lua5.1
+luarocks
+
+# Docker: docker-ce from Docker's own repo is installed by 15-docker.sh, NOT
+# Ubuntu's docker.io (the two conflict). Skipped if docker is already present.
+# lazygit: not packaged for Ubuntu 24.04 -- release binary via 25-lazygit.sh.
+# Node.js: LTS tarball into ~/.local/node via 35-node.sh.
